@@ -1,18 +1,10 @@
 Description
 ===========
 
-Provides a definition to install ruby for user using [ruby-build](https://github.com/sstephenson/ruby-build)
-
-Requirements
-============
-
-Should work anywhere.
+Provides a definition to install Ruby for user using [ruby-build](https://github.com/sstephenson/ruby-build).
 
 Usage
 =====
-
-ruby
----------------
 
 The `ruby` definition manages the installation and configuration of
 ruby for user.
