@@ -1,0 +1,29 @@
+{
+  "name": "ruby-build",
+  "description": "Installs/Configures user ruby by using ruby-build",
+  "long_description": "Description\n===========\n\nProvides a definition to install ruby for user using [ruby-build](https://github.com/sstephenson/ruby-build)\n\nRequirements\n============\n\nShould work anywhere.\n\nUsage\n=====\n\nruby\n---------------\n\nThe `ruby` definition manages the installation and configuration of\nruby for user.\n\n### Parameters:\n\n* `version` - Ruby version to install. You can check the list of possible options [`ruby-build` github repository](https://github.com/sstephenson/ruby-build/tree/master/share/ruby-build).\n* `owner` - Owner of installed files.\n* `home` - Home directory of an user.\n* `rubygems` - Rubygems version. Optional.\n* `exports` - Databag path to store computed ruby properties. Optional.\n\n### Examples:\n\n```ruby\napp          = node['app']\nusername     = app['name']\nruby_version = app['ruby']\nhome_dir     = \"#{node.home_root}/#{username}\"\n\nuser username do\n  shell \"/bin/bash\"\n  supports :manage_home => true\n  action :create\n  home home_dir\nend\n\nruby \"#{ruby_version}-#{username}\" do\n  version ruby_version\n  home home_dir\n  owner username\n  exports %W(app)\nend\n```\n\nLicense and Author\n==================\n\nAuthor:: Arkency <dev@arkency.com>\n\nCopyright 2012, Arkency\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Arkency",
+  "maintainer_email": "dev@arkency.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.1.0"
+}
