@@ -25,6 +25,7 @@ define :ruby do
     action :sync
     user owner
     group owner
+    not_if { File.exists?(ruby_dir) }
   end
 
   execute "install ruby #{ruby_dir}" do
