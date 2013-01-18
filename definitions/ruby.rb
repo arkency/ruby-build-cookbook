@@ -30,6 +30,7 @@ define :ruby do
 
   execute "install ruby #{ruby_dir}" do
     command "#{ruby_build_dir}/bin/ruby-build #{version} #{ruby_dir}"
+    environment "PATH" => ENV["PATH"].split(":").push(bin_dir).join(":"), "JAVA_HOME" => node[:java][:java_home] if version =~ /^jruby/
     user owner
     group owner
     not_if { File.exists?(ruby_dir) }
@@ -65,6 +66,7 @@ define :ruby do
   end
 
   execute "#{bin_dir}/gem install bundler --no-ri --no-rdoc" do
+    environment "PATH" => ENV["PATH"].split(":").push(bin_dir).join(":"), "JAVA_HOME" => node[:java][:java_home] if version =~ /^jruby/
     user owner
     not_if "#{bin_dir}/gem list | grep -q bundler"
   end
