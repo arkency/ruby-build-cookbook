@@ -7,6 +7,7 @@ define :ruby do
   owner          = params[:owner]
   bin_dir        = "#{ruby_dir}/bin"
   ruby_bin       = "#{bin_dir}/ruby"
+  bundler_bin    = "#{bin_dir}/bundle"
   gem_bin        = "#{bin_dir}/gem"
 
   if params[:exports]
@@ -64,9 +65,14 @@ define :ruby do
     end
   end
 
+  env = {}
+  env["PATH"]      = ENV["PATH"].split(":").push(bin_dir).join(":")
+  env["JAVA_HOME"] = node[:java][:java_home] if node[:java] && node[:java][:java_home]
+
   execute "#{bin_dir}/gem install bundler --no-ri --no-rdoc" do
+    environment(env)
     user owner
-    not_if "#{bin_dir}/gem list | grep -q bundler"
+    not_if { File.exists?(bundler_bin) }
   end
 
 end
