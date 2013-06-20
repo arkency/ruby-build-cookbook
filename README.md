@@ -15,6 +15,7 @@ ruby for user.
 * `owner` - Owner of installed files.
 * `home` - Home directory of an user.
 * `rubygems` - Rubygems version. Optional.
+* `export_path` - Append ruby to `PATH`.
 * `exports` - Databag path to store computed ruby properties. Optional.
 
 ### Examples:
@@ -36,6 +37,7 @@ ruby "#{ruby_version}-#{username}" do
   version ruby_version
   home home_dir
   owner username
+  export_path true
   exports %W(app)
 end
 ```
