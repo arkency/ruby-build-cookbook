@@ -1,4 +1,4 @@
-define :ruby do
+define :ruby, :export_path => true do
   version        = params[:version]
   home_dir       = params[:home]
   ruby_dir       = "#{home_dir}/#{version}"
