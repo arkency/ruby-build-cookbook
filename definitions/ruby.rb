@@ -54,7 +54,7 @@ define :ruby, :export_path => true do
       block do
         original_content = File.open(profile_file, 'r').read
         lines = original_content.split("\n")
-        if lines[0].start_with?(comment) && lines[1].start_with?("export PATH=")
+        if lines.length > 2 && lines[0].start_with?(comment) && lines[1].start_with?("export PATH=")
           original_content = lines[2..-1].join("\n")
         end
         File.open(profile_file, 'w') do |f|
