@@ -41,7 +41,7 @@ define :ruby, :export_path => true do
     profile_file = "#{home_dir}/.bashrc"
 
     file profile_file do
-      user owner
+      owner owner
       group owner
       mode "0644"
       not_if { File.exists? profile_file }
