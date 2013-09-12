@@ -66,7 +66,7 @@ end
 
 def install_rubygems
   r = execute "install rubygems - #{bin_dir}" do
-    user owner
+    user new_resource.owner
     cwd  home_dir
     command "#{bin_dir}/gem update --system #{rubygems_version}"
 
@@ -81,7 +81,7 @@ def install_bundler
 
   r = execute "#{bin_dir}/gem install bundler --no-ri --no-rdoc" do
     environment(env)
-    user owner
+    user new_resource.owner
 
     not_if { File.exists?(bundler_bin) }
   end
