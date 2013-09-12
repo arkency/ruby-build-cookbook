@@ -54,7 +54,7 @@ def export_ruby_path
         original_content = lines[2..-1].join("\n")
       end
 
-      bashrc_file.open('w') do |f|
+      bashrc_path.open('w') do |f|
         [comment, path_definition, original_content].each do |part|
           f.puts(part)
         end
