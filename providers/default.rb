@@ -20,7 +20,7 @@ def export_ruby_properties
 end
 
 def fetch_ruby_build
-  r = git ruby_build_dir do
+  r = git ruby_build_dir.to_s do
     repository "https://github.com/sstephenson/ruby-build.git"
     reference  "master"
     user  new_resource.owner
