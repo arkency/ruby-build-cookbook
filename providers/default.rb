@@ -92,7 +92,7 @@ def home_dir
 end
 
 def bin_dir
-  home_dir.join("bin")
+  ruby_dir.join("bin")
 end
 
 def ruby_dir
