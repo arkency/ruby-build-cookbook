@@ -67,7 +67,7 @@ end
 def install_rubygems
   r = execute "install rubygems - #{bin_dir}" do
     user new_resource.owner
-    cwd  home_dir
+    cwd  home_dir.to_s
     command "#{bin_dir}/gem update --system #{rubygems_version}"
 
     not_if %Q{test $(#{bin_dir}/gem --version) = "#{rubygems_version}"}
