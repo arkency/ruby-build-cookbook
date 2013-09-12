@@ -27,7 +27,7 @@ def fetch_ruby_build
     group new_resource.owner
     action :sync
 
-    not_if { File.exists?(ruby_dir) }
+    not_if { ::File.exists?(ruby_dir) }
   end
 end
 
@@ -37,7 +37,7 @@ def install_ruby
     user  new_resource.owner
     group new_resource.owner
 
-    not_if { File.exists?(ruby_dir) }
+    not_if { ::File.exists?(ruby_dir) }
   end
 end
 
@@ -83,7 +83,7 @@ def install_bundler
     environment(env)
     user new_resource.owner
 
-    not_if { File.exists?(bundler_bin) }
+    not_if { ::File.exists?(bundler_bin) }
   end
 end
 
