@@ -1,5 +1,3 @@
-package "git-core" do
-  action :install
-end
-
+package "git-core"
 package "libssl-dev"
+package "zlib1g-dev"
