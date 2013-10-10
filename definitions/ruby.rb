@@ -12,7 +12,7 @@ define :ruby, :export_path => true do
   gem_bin        = "#{bin_dir}/gem"
 
   if params[:exports]
-    hash = params[:exports].inject(node.set){|memo, step| memo[step] }
+    hash = Array(params[:exports]).inject(node.set){|memo, step| memo[step] }
     hash['ruby_computed'] = {
       'ruby_dir' => ruby_dir,
       'bin_dir'  => bin_dir,
