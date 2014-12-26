@@ -1,3 +1,7 @@
+== 0.4.0
+
+* Updated list of dependencies ( #10 )
+
 == 0.3.0
 
 * Fix JRuby installation (assuming all dependencies are installed).
