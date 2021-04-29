@@ -1,6 +1,6 @@
 case node['platform']
 when 'debian', 'ubuntu'
-  package "git-core"
+  package "git"
   package "build-essential"
   package "zlib1g-dev"
   package "libyaml-dev"
